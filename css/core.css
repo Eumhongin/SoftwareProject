@@ -8,8 +8,3 @@ html,body{
   margin:0 auto;
 
 }
-.row:after{
-  content='';
-  box-sizing: border-box;
-  clear: both;
-}

@@ -74,39 +74,62 @@ function makeItemDetail() {
     'margin': '0 auto',
     'margin-top': $('.covercontent').outerHeight() * 0.1 + 'px'
   })
-  $('<p>').text('Detail Spec').appendTo(wrapper);
+  $('<p style="font-size:40px;font-weight:bolder">').text('Detail Spec').appendTo(wrapper);
   $('<hr>').appendTo(wrapper);
   let iframe = $('<div class="contentDetail">').appendTo(wrapper);
   iframe.css({
     'padding': '5px',
     'box-sizing': 'border-box',
     'overflow-y': 'scroll',
-    'max-height':$('.coverwrapper').outerHeight()*0.9+'px'
+    'max-height': $('.coverwrapper').outerHeight() * 0.9 + 'px'
   })
   iframeContent(iframe);
 }
 
 function iframeContent(parent) {
   // console.log(object[setposition].cpu.name);
-  for (let i = 0; i < 9; i++) {
-    let shield = $('<div>').appendTo(parent);
-    $('<p class="contentimg">').text(object[setposition].cpu.name).appendTo(shield);
-    $('<p class="contentSpec" style="text-align:center">').text(object[setposition].cpu.Detail).appendTo(shield);
-    $('<p class="contentPrice" style="text-align:center">').text(object[setposition].cpu.price + "원").appendTo(shield);
+  let list = [object[setposition].cpu,object[setposition].gpu,object[setposition].ram,object[setposition].ssd,object[setposition].hdd,object[setposition].mainboard,object[setposition].case,object[setposition].power];
+  for (let i = 0; i < list.length; i++) {
+    $('<p style="margin-bottom:2px;font-size:20px;font-weight:bold;">').text(list[i].name).appendTo(parent);
+    let shield = $('<div class="tet">').appendTo(parent);
+    $('<div class="contentimg">').appendTo(shield);
+    $('<p class="contentSpec" style="padding-left:16px;box-sizing:border-box;">').text(list[i].Detail).appendTo(shield);
+    $('<p class="contentPrice" style="text-align:center">').text(list[i].price + "원").appendTo(shield);
+    $('<hr style="margin:0;margin-top:27px;">').appendTo(parent);
     shield.css({
-      'border-bottom': '1px solid black',
       'padding': '4px',
       'box-sizing': 'border-box',
       'display': 'grid',
-      'grid': '100px / 20% 60% 20%'
+      'grid': '100px / 100px ' + ($('.tet').outerWidth() - 100) * 0.8 + 'px ' + ($('.tet').outerWidth() - 100) * 0.2 + 'px'
+    })
+    $('.contentimg').css({
+      'padding': '10px',
+      'box-sizing': 'border-box',
+      'background-image': 'url("../img/cpu/557558.jpg")',
+      'background-repeat': 'no-repeat',
+      'background-position': 'center',
+      'background-size': 'cover'
     })
   }
 
 }
+$(document).keyup(function(e) {
+  if (e.key === "Escape") {
+    $('.cover').css({
+      'width': 0,
+      'height': 0,
+      'background-color': 'rgba(0,0,0,0)',
+      'transform': '0.3s'
+    })
+    $('.covercontent').remove();
+  }
+});
 $('.cover').on('click', function() {
   $(this).css({
     'width': 0,
-    'height': 0
+    'height': 0,
+    'background-color': 'rgba(0,0,0,0)',
+    'transform': '0.3s'
   })
   $('.covercontent').remove();
 })

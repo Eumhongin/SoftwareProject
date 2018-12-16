@@ -196,91 +196,89 @@ var power_titanium = {
   name: "SuperFlower SF-1600F14HT LEADEX TITANIUM",
   Detail: "ATX 파워/정격 1600W/20핀+4핀/140mm 팬/1개(팬)/액티브PFC/깊이:225mm/+12V 싱글레일/133.3A/4핀 IDE x5/SATA x14/6핀 PCI-E x5/6+2핀 PCI-E x9/보조8핀(4+4) 커넥터/FDD 커넥터/케이블 연결식/대기전력 1W/플랫케이블/프리볼트/80 PLUS/티타늄/무상 7년"
 }
-var list_cpu = [intelCeleron, intel_i3, intel_i5, intel_i7, intel_i9];
-var list_main = [main_H310M, main_B360M, main_Z390];
-var list_ram = [ram_4, ram_8, ram_16, ram_32];
-var list_gpu = [gpu_inner, gpu_1060, gpu_2070, gpu_2080ti];
-var list_ssd = [ssd_120, ssd_250, ssd_500, ssd_512, ssd_1024];
-var list_hdd = [hdd_no,hdd_1T, hdd_3T, hdd_10T];
-var list_case = [case_basic, case_custom, case_highend];
-var list_power = [power_bronze, power_gold, power_titanium];
+// var list_cpu = [intelCeleron, intel_i3, intel_i5, intel_i7, intel_i9];
+// var list_main = [main_H310M, main_B360M, main_Z390];
+// var list_ram = [ram_4, ram_8, ram_16, ram_32];
+// var list_gpu = [gpu_inner, gpu_1060, gpu_2070, gpu_2080ti];
+// var list_ssd = [ssd_120, ssd_250, ssd_500, ssd_512, ssd_1024];
+// var list_hdd = [hdd_no,hdd_1T, hdd_3T, hdd_10T];
+// var list_case = [case_basic, case_custom, case_highend];
+// var list_power = [power_bronze, power_gold, power_titanium];
 
 
 var game = {
-  set1: {
-    price: '$330',
-    cpu: intelCeleron,
-    gpu: 'gpu1',
-    ram: 'ram1',
-    ssd: 'ssd1',
-    hdd: 'hdd1',
-    mainboard: 'mainboard1',
-    case: 'case1',
-    power: 'power1',
-    view: {
-      price: intelCeleron.price+intel_i3.price,
-      cpu: intelCeleron.name,
-      gpu: 'gpu1',
-      ram: 'ram1',
-      ssd: 'ssd1',
-      hdd: 'hdd1',
-      mainboard: 'mainboard1',
-      case: 'case1',
-      power: 'power1'
-    }
+    set1: {
+      cpu: intel_i5,
+      gpu: gpu_1060,
+      ram: ram_8,
+      ssd: ssd_250,
+      hdd: hdd_no,
+      mainboard: main_H310M,
+      case: case_basic,
+      power: power_bronze,
+      view: {
+        price: intel_i5.price + gpu_1060.price + ram_8.price + ssd_250.price + hdd_no.price + main_H310M.price + case_basic.price + power_bronze.price,
+        cpu: intel_i5.name,
+        gpu: gpu_1060.name,
+        ram: ram_8.name,
+        ssd: ssd_250.name,
+        hdd: hdd_no.name,
+        mainboard: main_H310M.name,
+        case: case_basic.name,
+        power: power_bronze.name
+      }
 
-  },
-  set2: {
-    price: '$440',
-    cpu: 'cpu2',
-    gpu: 'gpu2',
-    ram: 'ram2',
-    ssd: 'ssd2',
-    hdd: 'hdd2',
-    mainboard: 'mainboard2',
-    case: 'case2',
-    power: 'power2',
-    view: {
-      price: '$440',
-      cpu: 'cpu2',
-      gpu: 'gpu2',
-      ram: 'ram2',
-      ssd: 'ssd2',
-      hdd: 'hdd2',
-      mainboard: 'mainboard2',
-      case: 'case2',
-      power: 'power2'
-    }
+    },
+    set2: {
+        cpu: intel_i7,
+        gpu: gpu_2070,
+        ram: ram_16,
+        ssd: ssd_500,
+        hdd: hdd_1T,
+        mainboard: main_B360M,
+        case: case_custom,
+        power: power_gold,
+        view: {
+          price: intel_i7.price + gpu_2070.price + ram_16.price + ssd_500.price + hdd_1T.price + main_B360M.price + case_custom.price + power_gold.price,
+          cpu: intel_i7.name,
+          gpu: gpu_2070.name,
+          ram: ram_16.name,
+          ssd: ssd_500.name,
+          hdd: hdd_1T.name,
+          mainboard: main_B360M.name,
+          case: case_custom.name,
+          power: power_gold.name
+        }
 
-  },
-  set3: {
-    price: '$550',
-    cpu: 'cpu3',
-    gpu: 'gpu3',
-    ram: 'ram3',
-    ssd: 'ssd3',
-    hdd: 'hdd3',
-    mainboard: 'mainboard3',
-    case: 'case3',
-    power: 'power3',
-    view: {
-      price: '$550',
-      cpu: 'cpu3',
-      gpu: 'gpu3',
-      ram: 'ram3',
-      ssd: 'ssd3',
-      hdd: 'hdd3',
-      mainboard: 'mainboard3',
-      case: 'case3',
-      power: 'power3'
-    }
+    },
+    set3: {
+      cpu: intel_i9,
+      gpu: gpu_2080ti,
+      ram: ram_32,
+      ssd: ssd_1024,
+      hdd: hdd_10T,
+      mainboard: main_Z390,
+      case: case_highend,
+      power: power_titanium,
+      view: {
+        price: intel_i9.price + gpu_2080ti.price + ram_32.price + ssd_1024.price + hdd_10T.price + main_Z390.price + case_highend.price + power_titanium.price,
+        cpu: intel_i9.name,
+        gpu: gpu_2080ti.name,
+        ram: ram_32.name,
+        ssd: ssd_1024.name,
+        hdd: hdd_10T.name,
+        mainboard: main_Z390.name,
+        case: case_highend.name,
+        power: power_titanium.name
+      }
 
-  },
-  StructureName: function() {
-    return 'game'
+    },
+    StructureName: function() {
+      return 'game'
+    }
   }
 
-}
+
 var design = {
   set1: {
     price: '$330',
@@ -506,8 +504,8 @@ var office = {
   }
 
 }
-console.log(game['set1'].cpu);
-console.log(list_cpu.indexOf(game['set1'].cpu));
+// console.log(game['set1'].cpu);
+// console.log(list_cpu.indexOf(game['set1'].cpu));
 
 
 
